@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.main{
+    display: flex;
+}
+h1,h2{
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    text-align: center;
+}
+a{
+    display: block;
+    text-decoration: none;
+}
+.left-side{
+    width: 50%;
+    /*border: 1px solid black;*/
+}
+.right-side{
+    padding-left: 20px;
+    width: 70%;
+    /*border: 1px solid black;*/
+}
+.left-side,.right-side h1{
+    text-align: center;
+}
+.recent-post a{
+    padding-top: 15px;
+    text-align: justify;
+    padding-left: 30px;
+
+}
+body{
+    background-color: lightblue;
+}
+
+
+.Card{
+    padding: 3px;
+    margin-top: 10px;
+    height: 40vh;
+    width: 700px;
+    border: 1px solid black;
+}
+.title{
+    height: 5vh;
+}
+.post{
+    height: 30vh;
+}
+.foot{
+    height: 5vh;
+}
+.tab{
+    padding-left:60px ;
+}
+
+button{
+    background-color: lightcoral;
+    text-align: center;
+    padding: 15px 35px;
+    font-weight: bolder;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-left: 43%;
+}
+button:hover{
+    background-color: lightgrey;
+}
+
+.index-class{
+    margin-top: 18%;
+}

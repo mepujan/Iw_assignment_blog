@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="main">
+    <div class="left-side">
+        <div class="recent-post">
+            <h1>Recent Posts</h1>
+            <table>
+
+                {% for post in data %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'post:selected_post' post.slug %}">{{ post.title }}</a>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+            <div class="pagination" style="text-align: center">
+                {% if data.has_other_pages %}
+                    <ul class="pagination">
+                        {% if data.has_previous %}
+                            <li><a href="?page={{ data.previous_page_number }}">Prev</a></li>
+                        {% else %}
+                            <li class="disabled"><span>Prev</span></li>
+                        {% endif %}
+                        {% for i in data.paginator.page_range %}
+                            {% if data.number == i %}
+                                <li class="active"><span>{{ i }} <span
+                                        class="sr-only">(current)</span></span>
+                                </li>
+                            {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if data.has_next %}
+                            <li><a href="?page={{ data.next_page_number }}">Next;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>Next</span></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <div class="right-side">
+        <h1>Posts</h1>
+        {% for post in data %}
+            <div class="Card">
+                <div class="title">
+                    <h2>{{ post.title }}</h2>
+                </div>
+                <hr/>
+                <div class="post">
+                    <h5>{{ post.post | safe }}</h5>
+                </div>
+                <hr/>
+                <div class="foot">
+                    <p>Author: {{ post.author.author_name }}<span class="tab"></span> Created
+                        At: {{ post.created_date }}<span class="tab"></span> Updated
+                        At: {{ post.updated_date }}  </p>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+</body>
+</html>

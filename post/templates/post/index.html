@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="index-class">
+    <h1>Welcome To Blog</h1>
+    <h2>Read Different Views Of Different Authors</h2>
+    <button type="submit"><a href="{% url 'post:blog' %}">Go to Blog</a></button>
+</div>
+
+</body>
+</html>
